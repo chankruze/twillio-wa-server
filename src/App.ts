@@ -11,10 +11,10 @@ import * as morgan from 'morgan'
 import helmet from 'helmet'
 // routes
 import rootRoutes from './routes'
-import lessonRoutes from './routes/lesson'
+import twilioRoutes from './routes/twilio'
 
 class App {
-  public app;
+  public app
 
   constructor () {
     this.app = express()
@@ -23,13 +23,19 @@ class App {
   }
 
   private useMiddlewares (): void {
-    this.app.use(helmet(), cors(), morgan('dev'), express.json())
+    this.app.use(
+      helmet(),
+      cors(),
+      morgan('dev'),
+      express.json(),
+      express.urlencoded({ extended: false })
+    )
   }
 
   private mountRoutes (): void {
     // mount routes
     this.app.use('/', rootRoutes)
-    this.app.use('/lesson', lessonRoutes)
+    this.app.use('/twilio', twilioRoutes)
   }
 }
 
