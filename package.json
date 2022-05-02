@@ -1,12 +1,11 @@
 {
-  "name": "ed-tech-cms-api",
+  "name": "twilio-wa-backend",
   "version": "1.0.0",
-  "description": "CMS backend API for EdTech startup",
+  "description": "Twilio webhook for whatsapp",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "prestart": "npm install && npm run build",
-    "start": "NODE_ENV='production' && node dist/index.js",
+    "start": "node dist/index.js",
     "build": "npm run lint && tsc",
     "predev": "npm run build",
     "dev": "NODE_ENV='development' concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
